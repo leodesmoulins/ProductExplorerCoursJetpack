@@ -338,7 +338,7 @@ fun ProductHomeScreen(
             style = MaterialTheme.typography.headlineMedium
         )
         Text(
-            text = "Découvrez les produits du moment",
+            text = "Découvrez les produits du moment ",
             style = MaterialTheme.typography.bodyMedium
         )
     }
