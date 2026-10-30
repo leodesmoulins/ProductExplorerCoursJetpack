@@ -335,6 +335,7 @@ fun ProductHomeScreen(
     ) {
         HomeHeader()
     }
+
 }
 
 @Composable
