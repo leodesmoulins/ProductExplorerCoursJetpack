@@ -341,7 +341,9 @@ fun ProductHomeScreen(
             .padding(16.dp)
     ) {
         HomeHeader()
+        Spacer(modifier = Modifier.height(24.dp))
         SearchPreviewBar()
+        Spacer(modifier = Modifier.height(24.dp))
         FeaturedProductSection(
             product = featuredProduct,
             onClick = onFeaturedProductClick
@@ -352,7 +354,6 @@ fun ProductHomeScreen(
         DailyOfferBox()
 
     }
-
 }
 
 @Composable
@@ -531,4 +532,5 @@ fun DailyOfferBox(
         }
     }
 }
+
 
