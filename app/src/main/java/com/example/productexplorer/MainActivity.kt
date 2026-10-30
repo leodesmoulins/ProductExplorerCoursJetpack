@@ -533,4 +533,15 @@ fun DailyOfferBox(
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun ProductHomeScreenPreview() {
+    ProductExplorerTheme {
+        ProductHomeScreen(
+            featuredProduct = sampleProduct(),
+            onFeaturedProductClick = {},
+        )
+    }
+}
+
 
