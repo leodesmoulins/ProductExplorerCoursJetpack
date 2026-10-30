@@ -345,6 +345,7 @@ fun ProductHomeScreen(
             onClick = onFeaturedProductClick
         )
         Spacer(modifier = Modifier.height(24.dp))
+
     }
 
 }
@@ -410,10 +411,40 @@ fun FeaturedProductSection(
                 style = MaterialTheme.typography.bodyMedium
             )
             Spacer(modifier = Modifier.height(12.dp))
+            ProductQuickInfoRow(
+                price = product.price,
+                rating = product.rating,
+                stock = product.stock
+            )
+            Spacer(modifier = Modifier.height(12.dp))
             Button(onClick = onClick) {
                 Text(text = "Voir le produit")
             }
         }
+    }
+}
+
+@Composable
+fun ProductQuickInfoRow(
+    price: Double,
+    rating: Double,
+    stock: Int,
+    modifier: Modifier = Modifier
+) {
+    Row(modifier = modifier.fillMaxWidth()) {
+        Text(
+            text = "$price €",
+            modifier = Modifier.weight(1f)
+        )
+        Text(
+            text = "★ $rating"
+            ,
+            modifier = Modifier.weight(1f)
+        )
+        Text(
+            text = "$stock en stock",
+            modifier = Modifier.weight(1f)
+        )
     }
 }
 
