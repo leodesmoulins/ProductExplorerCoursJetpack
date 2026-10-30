@@ -75,9 +75,11 @@ fun ProductDetailScreen(
             .fillMaxSize()
             .padding(16.dp)
     ) {
-        Text(text = product.title)
-        Text(text = product.brand)
-        Text(text = product.category)
+        ProductHeader(
+            title = product.title,
+            brand = product.brand,
+            category = product.category
+        )
         Text(text = "${product.price} €")
         Text(text = product.description)
         Button(onClick = onAddToCartClick) {
@@ -94,5 +96,19 @@ fun ProductDetailScreenPreview() {
             product = sampleProduct(),
             onAddToCartClick = {}
         )
+    }
+}
+
+@Composable
+fun ProductHeader(
+    title: String,
+    brand: String,
+    category: String,
+    modifier: Modifier = Modifier
+) {
+    Column(modifier = modifier) {
+        Text(text = title)
+        Text(text = brand)
+        Text(text = category)
     }
 }
