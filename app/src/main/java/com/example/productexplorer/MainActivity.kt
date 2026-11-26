@@ -613,6 +613,9 @@ class ProductCatalogViewModel : ViewModel() {
     private val allProducts: List<ProductUi> = sampleProducts()
 
     val categories: List<String> = sampleCategories()
+
+    var searchQuery by mutableStateOf("")
+        private set
 }
 
 @Composable
