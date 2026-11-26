@@ -617,8 +617,15 @@ class ProductCatalogViewModel : ViewModel() {
     var searchQuery by mutableStateOf("")
         private set
 
+    var showOnlyInStock by mutableStateOf(false)
+        private set
+
     fun onSearchQueryChange(newValue: String) {
         searchQuery = newValue
+    }
+
+    fun onToggleStockFilter() {
+        showOnlyInStock = !showOnlyInStock
     }
 }
 
