@@ -41,6 +41,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.ViewModel
 import com.example.productexplorer.ui.theme.ProductExplorerTheme
 
 class MainActivity : ComponentActivity() {
@@ -605,6 +606,9 @@ fun ProductHomeScreenPreview() {
             onFeaturedProductClick = {},
         )
     }
+}
+
+class ProductCatalogViewModel : ViewModel() {
 }
 
 @Composable
