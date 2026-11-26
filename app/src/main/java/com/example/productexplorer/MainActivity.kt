@@ -618,6 +618,10 @@ fun ProductCatalogScreen(
             )
         }
 
+        item {
+            CategoryRow(categories = sampleCategories())
+        }
+
         items(
             items = products,
             key = { product -> product.id }
