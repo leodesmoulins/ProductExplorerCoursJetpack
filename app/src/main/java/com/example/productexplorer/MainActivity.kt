@@ -41,6 +41,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import com.example.productexplorer.ui.theme.ProductExplorerTheme
 
 class MainActivity : ComponentActivity() {
@@ -616,8 +619,16 @@ data class ProductCatalogUiState(
 class ProductCatalogViewModel : ViewModel() {
 
     private val allProducts: List<ProductUi> = sampleProducts()
+    private val allCategories: List<String> = sampleCategories()
 
-    val categories: List<String> = sampleCategories()
+    private val _uiState = MutableStateFlow(
+        ProductCatalogUiState(
+            products = allProducts,
+            categories = allCategories
+        )
+    )
+
+    val uiState: StateFlow<ProductCatalogUiState> = _uiState.asStateFlow()
 
     var searchQuery by mutableStateOf("")
         private set
