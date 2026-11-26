@@ -616,6 +616,10 @@ class ProductCatalogViewModel : ViewModel() {
 
     var searchQuery by mutableStateOf("")
         private set
+
+    fun onSearchQueryChange(newValue: String) {
+        searchQuery = newValue
+    }
 }
 
 @Composable
