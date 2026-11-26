@@ -693,3 +693,14 @@ fun CategoryRow(
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun ProductCatalogScreenPreview() {
+    ProductExplorerTheme {
+        ProductCatalogScreen(
+            products = sampleProducts(),
+            onProductClick = {}
+        )
+    }
+}
+
