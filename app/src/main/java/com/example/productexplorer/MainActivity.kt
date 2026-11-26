@@ -730,7 +730,7 @@ fun ProductCatalogScreen(
         }
 
         item {
-            CategoryRow(categories = sampleCategories())
+            CategoryRow(categories = categories)
         }
 
         item {
