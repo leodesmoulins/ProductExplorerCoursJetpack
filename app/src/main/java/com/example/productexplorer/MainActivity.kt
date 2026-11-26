@@ -33,8 +33,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -631,28 +629,6 @@ class ProductCatalogViewModel : ViewModel() {
     )
 
     val uiState: StateFlow<ProductCatalogUiState> = _uiState.asStateFlow()
-
-    var searchQuery by mutableStateOf("")
-        private set
-
-    var showOnlyInStock by mutableStateOf(false)
-        private set
-
-    var favoriteProductIds by mutableStateOf(listOf<Int>())
-        private set
-
-    val filteredProducts: List<ProductUi>
-        get() = allProducts.filter { product ->
-            val matchesSearch =
-                product.title.contains(searchQuery, ignoreCase = true) ||
-                        product.brand.contains(searchQuery, ignoreCase = true) ||
-                        product.category.contains(searchQuery, ignoreCase = true)
-
-            val matchesStock =
-                !showOnlyInStock || product.stock > 0
-
-            matchesSearch && matchesStock
-        }
 
     private fun filterProducts(searchQuery: String, showOnlyInStock: Boolean): List<ProductUi> {
         return allProducts.filter { product ->
