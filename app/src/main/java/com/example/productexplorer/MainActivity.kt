@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -605,7 +606,9 @@ fun ProductCatalogScreen(
     modifier: Modifier = Modifier
 ) {
     LazyColumn(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier
+            .fillMaxSize()
+            .background(MaterialTheme.colorScheme.background),
         contentPadding = PaddingValues(16.dp),
         // Ajoute une marge intérieure autour du contenu de la liste
         verticalArrangement = Arrangement.spacedBy(16.dp)
