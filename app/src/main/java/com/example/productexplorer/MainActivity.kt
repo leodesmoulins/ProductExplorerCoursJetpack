@@ -692,10 +692,17 @@ class ProductCatalogViewModel : ViewModel() {
     }
 
     fun onFavoriteClick(productId: Int) {
-        favoriteProductIds = if (favoriteProductIds.contains(productId)) {
-            favoriteProductIds - productId
-        } else {
-            favoriteProductIds + productId
+        _uiState.update { currentState ->
+            val newFavoriteIds =
+                if (currentState.favoriteProductIds.contains(productId)) {
+                    currentState.favoriteProductIds - productId
+                } else {
+                    currentState.favoriteProductIds + productId
+                }
+
+            currentState.copy(
+                favoriteProductIds = newFavoriteIds
+            )
         }
     }
 }
