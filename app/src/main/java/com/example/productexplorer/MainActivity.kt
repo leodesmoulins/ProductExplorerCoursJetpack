@@ -623,6 +623,19 @@ class ProductCatalogViewModel : ViewModel() {
     var favoriteProductIds by mutableStateOf(listOf<Int>())
         private set
 
+    val filteredProducts: List<ProductUi>
+        get() = allProducts.filter { product ->
+            val matchesSearch =
+                product.title.contains(searchQuery, ignoreCase = true) ||
+                        product.brand.contains(searchQuery, ignoreCase = true) ||
+                        product.category.contains(searchQuery, ignoreCase = true)
+
+            val matchesStock =
+                !showOnlyInStock || product.stock > 0
+
+            matchesSearch && matchesStock
+        }
+
     fun onSearchQueryChange(newValue: String) {
         searchQuery = newValue
     }
